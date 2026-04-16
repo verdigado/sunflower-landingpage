@@ -1,0 +1,12 @@
+node_modules/
+bundle*
+vendor/
+style.css
+style.css.map
+build/
+assets/vndr/
+.favorites.json
+.vscode
+.idea
+docker-compose.yaml
+.DS_Store

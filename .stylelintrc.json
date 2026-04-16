@@ -1,0 +1,20 @@
+{
+    "extends": [
+        "@wordpress/stylelint-config/scss-stylistic"
+    ],
+    "ignoreFiles": [
+		"style.css"
+    ],
+    "rules": {
+        "@stylistic/indentation": 4,
+        "font-family-no-missing-generic-family-keyword": null,
+        "no-descending-specificity": null,
+        "block-no-empty": null,
+        "no-duplicate-selectors": null,
+        "font-family-no-duplicate-names": null,
+        "selector-class-pattern": null,
+        "function-url-quotes": null,
+        "declaration-property-unit-allowed-list":  null,
+        "scss/no-global-function-names": null
+    }
+}

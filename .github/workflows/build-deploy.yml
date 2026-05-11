@@ -5,20 +5,19 @@ name: Build and Deploy
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 env:
+  THEME_SLUG: sunflower-landingpage
   NODE_VERSION: 24
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    env:
-      THEME_SLUG: sunflower-landingpage
-      PROJECT_ROOT: ${{ github.workspace }}/${{ env.THEME_SLUG }}
 
     defaults:
       run:
-        working-directory: ${{ env.PROJECT_ROOT }}
+        working-directory: ${{ github.workspace }}/${{ env.THEME_SLUG }}
 
     steps:
       - uses: actions/checkout@v6

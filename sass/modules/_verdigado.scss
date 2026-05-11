@@ -1,60 +1,61 @@
 @use "mixins" as *;
 
 .verdigado {
-  padding-top: var(--block-spacing);
-  padding-bottom: var(--half-block-spacing);
+    padding-top: var(--block-spacing);
+    padding-bottom: var(--half-block-spacing);
 
-  h2 {
-    font-family: "Sarabun", sans-serif;
-    font-weight: 800;
-    font-size: 46px;
-    line-height: 115%;
+    h2 {
+        font-family: Sarabun, sans-serif;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 115%;
 
-    @include media-breakpoint-down(xl) {
-      font-size: 40px;
+        @include media-breakpoint-down(xl) {
+            font-size: 40px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            font-size: 30px;
+        }
     }
 
-    @include media-breakpoint-down(sm) {
-      font-size: 30px;
-    }
-  }
+    .wp-block-media-text__content {
 
-  .wp-block-media-text__content {
-    @include media-breakpoint-down(md) {
-      order: 2;
-    }
+        @include media-breakpoint-down(md) {
+            order: 2;
+        }
 
-    .wp-block-group {
-      column-gap: 0;
+        .wp-block-group {
+            column-gap: 0;
+        }
+
+        figure {
+            position: relative;
+            top: 3px;
+
+            @include media-breakpoint-down(xl) {
+                width: 199px;
+                top: 1px;
+            }
+
+            @include media-breakpoint-down(md) {
+                width: 145px;
+                top: 0;
+            }
+        }
     }
 
     figure {
-      position: relative;
-      top: 3px;
+        max-height: 440px;
 
-      @include media-breakpoint-down(xl) {
-        width: 199px;
-        top: 1px;
-      }
+        @include media-breakpoint-down(md) {
+            order: 1;
+            max-height: 350px;
+        }
 
-      @include media-breakpoint-down(md) {
-        width: 145px;
-        top: 0;
-      }
+        @include media-breakpoint-down(sm) {
+            max-height: 220px;
+        }
+
     }
-  }
-
-  figure {
-    max-height: 440px;
-
-    @include media-breakpoint-down(md) {
-      order: 1;
-      max-height: 350px;
-    }
-
-    @include media-breakpoint-down(sm) {
-      max-height: 220px;
-    }
-
-  }
 }

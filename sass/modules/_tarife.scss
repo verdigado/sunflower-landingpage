@@ -1,0 +1,133 @@
+@use "mixins" as *;
+
+.wp-child-theme-sunflower-landingpage.home {
+
+  .tarife {
+
+    column-gap: var(--gap-large) !important;
+
+    @media (max-width: 1200px) {
+      justify-content: flex-start !important;
+
+      padding-bottom: var(--block-spacing) !important;
+    }
+
+    @include media-breakpoint-down(md) {
+      padding-bottom: 123px !important;
+    }
+
+    &__stoerer {
+      position: absolute;
+      height: 41px;
+      background-color: #E60064;
+      color: #fff;
+      padding: 0 14px 7px 14px;
+      border: 2px solid #fff;
+      border-radius: 7px;
+      margin: 0 !important;
+      letter-spacing: 2px !important;
+      right: 20px;
+      top: -31px;
+      font-weight: 700;
+
+      @include media-breakpoint-down(xl) {
+        padding: 2px 14px 7px 14px;
+        height: 36px;
+        top: -30px;
+      }
+    }
+
+    &__tarif {
+      border: 2px solid #005538;
+      border-top-width: 23px;
+      border-radius: var(--border-radius-medium) var(--border-radius-medium) var(--border-radius-large) var(--border-radius-large) !important;
+      overflow: visible;
+      width: 360px;
+      margin-bottom: 50px;
+
+      .wp-block-buttons {
+        width: 100%;
+
+        .wp-block-button {
+          width: 100%;
+        }
+      }
+
+      .price {
+        column-gap: var(--gap-small) !important;
+        padding-top: 10px;
+        padding-bottom: 0;
+      }
+    }
+
+
+    @include media-breakpoint-down(xl) {
+      .wp-block-spacer {
+        display: none;
+      }
+
+      column-gap: var(--gap-small) !important;
+
+      &__tarif {
+        padding: 12px !important;
+      }
+    }
+  }
+
+  .navbuttons {
+    position: relative;
+    right: var(--padding);
+    bottom: -50px;
+    width: 100%;
+    top: 85px;
+
+    @include media-breakpoint-down(md) {
+      top: 0;
+    }
+    @media (max-width: 1200px) {
+      top: calc(-1 * var(--half-block-spacing) - 35px);
+      bottom: 0;
+      width: 200px !important;
+    }
+  }
+
+  .slider__button {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    background-color: #fff !important;
+    border: 2px solid #005538 !important;
+    border-radius: 23px;
+
+    div svg {
+      color: #005538;
+    }
+
+    &:hover {
+      background-color: #005538 !important;
+      border: 2px solid #005538 !important;
+
+      div svg {
+        color: #fff;
+      }
+    }
+  }
+
+  .slider__button .button__direction {
+    display: block;
+    cursor: pointer;
+  }
+
+  .slider__button--prev {
+    left: 0;
+  }
+
+  .slider__button--next {
+    right: 0;
+    transform: rotate(180deg);
+  }
+}
+

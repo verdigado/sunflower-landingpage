@@ -1,0 +1,27 @@
+@use "mixins" as *;
+
+.introtext {
+
+  .wp-block-group {
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+  }
+  video {
+    border-radius: 4%;
+  }
+
+  .has-small-font-size {
+    margin: 0 !important;
+  }
+
+  .wp-block-image {
+    border-radius: 0 !important;
+  }
+}

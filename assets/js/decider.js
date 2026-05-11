@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="wp-block-group tarife__tarif has-white-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
         <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-0d637c9c8f6b5e22c2946c602d5fcffc">WordPress <br>Basis</h3>
         <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-334d94eb58cf472b108ef7d1ed711960">23 €</h2>
+            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-334d94eb58cf472b108ef7d1ed711960">19 €</h2>
             <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
         </div>
         <ul class="wp-block-list">
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="wp-block-group tarife__tarif has-gruener-sand-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
         <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-81e4eca73ab66d5ce944809a74501089">WordPress <br>Premium</h3>
         <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-13355eb76f3d06d8f7186d3eea67de55">34 €</h2>
+            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-13355eb76f3d06d8f7186d3eea67de55">35 €</h2>
             <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
         </div>
         <ul class="wp-block-list">
@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="wp-block-group tarife__tarif has-white-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
         <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-42ef099f476b07bacc5be8ae059b5d4a">TYPO3 <br>Basis</h3>
         <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-334d94eb58cf472b108ef7d1ed711960">23 €</h2>
+            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-334d94eb58cf472b108ef7d1ed711960">19 €</h2>
             <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
         </div>
         <ul class="wp-block-list">
@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="wp-block-group tarife__tarif has-gruener-sand-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
         <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-a5796a42f4cc5424af37a2f4feb4c77d">TYPO3 <br>Premium</h3>
         <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-9ae10fc9291cc6bc01d2ebff64c79f34">24 €</h2>
+            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-9ae10fc9291cc6bc01d2ebff64c79f34">28 €</h2>
             <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
         </div>
         <ul class="wp-block-list">

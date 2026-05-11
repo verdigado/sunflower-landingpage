@@ -1,0 +1,94 @@
+@use "mixins" as *;
+
+table {
+  pointer-events: none;
+
+  img {
+    width: 20px;
+  }
+
+  * {
+    border: none !important;
+  }
+
+  td {
+    &:first-child {
+      font-weight: 700;
+    }
+  }
+}
+
+.wp-block-table {
+  margin-top: 0 !important;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+
+  table {
+    width: max-content;
+
+    th,
+    td {
+      min-width: 175px;
+
+      @include media-breakpoint-down(md) {
+        width: 175px;
+      }
+
+      &:first-child {
+        min-width: 330px;
+        width: 330px;
+
+        @include media-breakpoint-down(xl) {
+          min-width: 285px;
+          width: 285px;
+        }
+
+        @media(max-width: 1200px) {
+          min-width: 200px;
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+.table-scroll-wrapper {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 1));
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+
+    @media (max-width: 781px) {
+      right: var(--grid-margin);
+    }
+
+    @media (max-width: 481px) {
+      right: 0;
+    }
+  }
+
+  &.scrolled-end::after {
+    opacity: 0;
+  }
+}
+
+.tariftabelle-toggle {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 100% !important;
+  max-width: initial !important;
+  font-weight: 700;
+  color: #6c757d !important;
+  margin-bottom: var(--grid-margin);
+}

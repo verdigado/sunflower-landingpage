@@ -1,0 +1,99 @@
+@use "mixins" as *;
+
+.newsletter {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  height: 400px;
+  margin-bottom: 0 !important;
+
+  @include media-breakpoint-down(xl) {
+    height: 300px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: fit-content;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    padding: var(--gap-large) !important;
+    flex-direction: column !important;
+  }
+
+
+  figure {
+    width: 33%;
+    height: 100%;
+    border-radius: 0;
+
+    @include media-breakpoint-down(md) {
+      border-radius: var(--border-radius-medium);
+      width: 100%;
+      max-height: 350px;
+    }
+
+
+    @include media-breakpoint-down(sm) {
+      max-height: 220px;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  h5 {
+    padding-top: var(--gap-large);
+
+    @include media-breakpoint-down(md) {
+      padding-top: var(--half-block-spacing);
+    }
+  }
+
+.wp-block-group {
+  padding: 0 var(--half-block-spacing) !important;
+  margin: 0 auto !important;
+
+  @include media-breakpoint-down(xl) {
+    padding: 0 calc(var(--half-block-spacing) / 2) !important;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+  &-form {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    margin-top: var(--gap-large) !important;
+
+    label {
+      display: none;
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @include media-breakpoint-down(md) {
+        position: relative;
+        top: var(--half-grid-margin);
+        float: right;
+      }
+
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+    }
+  }
+
+  p {
+    line-height: 20px !important;
+    padding-bottom: var(--gap-large);
+  }
+
+}

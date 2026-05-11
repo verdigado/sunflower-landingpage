@@ -2,38 +2,41 @@
 
 .usp {
 
-  padding-top: var(--grid-margin) !important;
-  padding-bottom: var(--grid-margin) !important;
+    padding-top: var(--grid-margin) !important;
+    padding-bottom: var(--grid-margin) !important;
 
-  br {
-    display: none;
-  }
-
-  .icon2 {
-    left: 16px;
-  }
-
-  .icon3 {
-    left: 12px;
-  }
-
-  @media(max-width: 1250px) {
     br {
-      display: block;
+        display: none;
     }
 
-    p {
-      display: none;
+    .icon2 {
+        left: 16px;
     }
-  }
 
-@include media-breakpoint-down(md) {
-    > .wp-block-group {
-      > * {
-        flex: 0 0 50%;
-      }
-      row-gap: calc(3 * var(--grid-margin)) !important;
-      column-gap: 0 !important;
+    .icon3 {
+        left: 12px;
     }
-  }
+
+    @media (max-width: 1250px) {
+
+        br {
+            display: block;
+        }
+
+        p {
+            display: none;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+
+        > .wp-block-group {
+
+            > * {
+                flex: 0 0 50%;
+            }
+            row-gap: calc(3 * var(--grid-margin)) !important;
+            column-gap: 0 !important;
+        }
+    }
 }

@@ -1,0 +1,77 @@
+# .github/workflows/release.yml
+
+name: Build Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - dev*
+      - main
+  workflow_dispatch:
+
+env:
+  THEME_SLUG: sunflower-landingpage
+  NODE_VERSION: 24
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/${{ env.THEME_SLUG }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+            path: ${{ env.THEME_SLUG }}
+
+      - name: check theme version against tag
+        run: |
+            THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+            V="v"
+            echo Version in style.scss: $THEME_VERSION
+
+      - uses: actions/setup-node@v6
+        with:
+            node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node_modules directory
+        uses: actions/cache@v5
+        id: npm-cache-dir
+        with:
+            path: node_modules
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
+
+      - name: Install npm packages
+        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Lint SCSS
+        run: npm run lint:scss
+
+      - name: Build CSS
+        run: npm run compile:css
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+
+      - name: run install composer
+        run: |
+            composer install
+
+      - name: Run PHPCS checks
+        id: phpcs
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml

@@ -1,0 +1,116 @@
+# .github/workflows/release.yml
+
+name: Build and Deploy
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+env:
+  THEME_SLUG: sunflower-landingpage
+  NODE_VERSION: 24
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/${{ env.THEME_SLUG }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+            path: ${{ env.THEME_SLUG }}
+
+      - name: check theme version against tag
+        run: |
+            THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+            V="v"
+            echo Version in style.scss: $THEME_VERSION
+            if [ "$V$THEME_VERSION" != "${{ github.event.release.tag_name }}" ]; then exit 1; fi
+
+      - uses: actions/setup-node@v6
+        with:
+            node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node_modules directory
+        uses: actions/cache@v5
+        id: npm-cache-dir
+        with:
+            path: node_modules
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
+
+      - name: Install npm packages
+        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Build CSS
+        run: npm run compile:css
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+
+      - name: run install composer
+        run: |
+            composer install
+
+      - name: Run PHPCS checks
+        id: phpcs
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml
+
+      - name: Make bundle
+        run: npm run bundle
+
+      - name: fail on fork
+        if: github.repository_owner != 'verdigado'
+        run: exit 1
+
+      - name: Rename ZIP file
+        run: |
+            mv ../${{ env.THEME_SLUG }}.zip /${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+            artifacts: '${{ env.PROJECT_ROOT }}/${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip'
+            makeLatest: true
+            prerelease: false
+            allowUpdates: true
+            token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Provide deploy_key
+        env:
+            DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            SSH_USER: 'github-ci'
+            SSH_HOST: 'wordpress05.gcms.verdigado.net'
+        run: |
+            mkdir "$HOME/.ssh"
+            echo "$DEPLOY_KEY" > "$HOME/.ssh/production.key"
+            chmod 600 "$HOME/.ssh/production.key"
+            cat >> ~/.ssh/config <<END
+            Host production
+              HostName $SSH_HOST
+              User $SSH_USER
+              IdentityFile ~/.ssh/production.key
+              StrictHostKeyChecking no
+            END
+
+      - name: save version
+        run: echo ${{ github.event.release.tag_name }} > version.txt
+
+      - name: rsync zipfile, version and changelog
+        env:
+            PAGEID: 7
+        run: |
+            rsync -a ${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip version.txt changelog.html production:/var/www/updateserver/${{ env.THEME_SLUG }}/

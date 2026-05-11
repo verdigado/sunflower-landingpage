@@ -1,0 +1,91 @@
+@use "mixins" as *;
+
+.features {
+  position: relative;
+
+  @media (max-width: 800px) {
+    padding: 0;
+
+    h2{
+      width: 100%;
+      text-align: center;
+    }
+
+    ul {
+      margin-top: 25.5vw !important;
+      padding-top: 22vw !important;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    ul {
+      margin-top: 31vw !important;
+      padding-top: 25vw !important;
+    }
+  }
+
+  .has-sand-background-color {
+    width: calc(100% - 247px);
+
+    li:nth-of-type(-n+3) {
+      padding-right: 360px;
+    }
+
+
+    @include media-breakpoint-down(xl) {
+      width: calc(100% - 198px);
+
+      li:nth-of-type(-n+3) {
+        padding-right: 250px;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      width: calc(100% - 173px);
+
+      li:nth-of-type(-n+3) {
+        padding-right: 200px;
+      }
+    }
+
+    @media (max-width: 880px) {
+      li:nth-of-type(3) {
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 800px) {
+      width: 100%;
+      li:nth-of-type(-n+3) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute !important;
+    right: 0;
+    top: calc(var(--half-block-spacing) + var(--gap-large));
+    width: 584px;
+
+    @include media-breakpoint-down(xl) {
+      width: 400px;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 350px;
+    }
+
+    @media (max-width: 800px) {
+      width: calc(66vw);
+      top: 105px;
+      right: initial;
+      left: calc(50% - 33vw);
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: calc(100% - calc(6 *var(--grid-margin)));
+      left: calc(3 * var(--grid-margin));
+    }
+  }
+}

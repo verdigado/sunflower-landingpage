@@ -1,0 +1,34 @@
+.thanks {
+  min-height: 100vh;
+  width: 100vw !important;
+  max-width: initial !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 100px 20px !important;
+}
+
+.thanks__confetti {
+  width: 100vw !important;
+  height: 100vh;
+  margin: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+  max-width: initial !important;
+  z-index: 1000;
+  border-radius: 0;
+  mix-blend-mode: difference !important;
+  pointer-events: none;
+
+  video {
+    height: 100%;
+    aspect-ratio: initial;
+    vertical-align: middle;
+    width: 100%;
+    object-fit: cover;
+  }
+}

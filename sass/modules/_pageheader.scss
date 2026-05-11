@@ -1,0 +1,162 @@
+@use "mixins" as *;
+
+h1 {
+  mark {
+    font-size: 60px !important;
+
+    @include media-breakpoint-down(md) {
+      font-size: 40px !important;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 30px !important;
+    }
+  }
+}
+
+body #content .gruenegenossenschaft {
+  a {
+    color: #fff !important;
+
+    &:hover {
+      color: #E60064 !important;
+    }
+  }
+}
+
+.landingpage-header {
+  min-height: calc(100vh - 100px);
+  padding-bottom: calc(var(--half-block-spacing) / 2);
+  padding-top: 60px !important;
+
+  @include  media-breakpoint-down(md) {
+    padding-top: 20px !important;
+    row-gap: 10px !important;
+  }
+
+  &__left {
+    width: 70%;
+    z-index: 2;
+    position: relative;
+
+    > .wp-block-group {
+      width: 710px;
+      padding: 0 !important;
+
+      > p, ul, .wp-block-buttons {
+        width: 630px;
+        margin-left: auto !important;
+      }
+
+      p, ul {
+        margin-bottom: var(--half-grid-margin) !important;
+      }
+
+      @media(max-width: 600px) {
+        .wp-block-button {
+          width: 100%;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(xl) {
+      > .wp-block-group {
+        width: 600px;
+        > p, ul, .wp-block-buttons {
+          width: 100%;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      > .wp-block-group {
+        width: 450px;
+        > p, ul, .wp-block-buttons {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+  &__right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+
+    @include media-breakpoint-down(xl) {
+      width: 40%;
+      right: -5%;
+    }
+
+    figure {
+      height: 100%;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+        object-position: right center;
+        right: 0;
+      }
+
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 14px;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 750px) {
+    flex-wrap: wrap !important;
+
+    &__left, &__right {
+      width: 100%;
+    }
+
+    &__left {
+      order: 2;
+      padding-top: 0 !important;
+      padding-bottom: 50px !important;
+
+      h1 {
+        margin: 0 auto;
+      }
+
+      >.wp-block-group {
+        width: 95% !important;
+      }
+    }
+
+    &__right {
+      order: 1;
+      position: relative;
+      padding: 0 !important;
+
+      figure {
+        width: auto;
+        height: 50vh;
+        img {
+          object-position: center !important;
+        }
+      }
+    }
+
+    &__bottom {
+      margin: 0 auto !important;
+      left: initial !important;
+      order: 3;
+      position: relative;
+      padding: 0;
+      text-align: center;
+      bottom: 0;
+
+      br {
+        display: none;
+      }
+    }
+  }
+}

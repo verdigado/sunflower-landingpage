@@ -94,3 +94,5 @@ add_shortcode(
 		return ob_get_clean();
 	}
 );
+
+require_once 'functions/update.php';

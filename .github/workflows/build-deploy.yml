@@ -78,7 +78,7 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-            mv ../${{ env.THEME_SLUG }}.zip /${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip
+            mv ../${{ env.THEME_SLUG }}.zip ${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release
         uses: ncipollo/release-action@v1

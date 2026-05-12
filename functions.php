@@ -5,6 +5,8 @@
  * @package Sunflower Landingpage
  */
 
+require_once 'functions/update.php';
+
 add_action(
 	'wp_enqueue_scripts',
 	function () {

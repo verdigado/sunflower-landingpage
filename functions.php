@@ -5,8 +5,6 @@
  * @package Sunflower Landingpage
  */
 
-require_once 'functions/update.php';
-
 add_action(
 	'wp_enqueue_scripts',
 	function () {
@@ -96,3 +94,5 @@ add_shortcode(
 		return ob_get_clean();
 	}
 );
+
+require_once 'functions/update.php';

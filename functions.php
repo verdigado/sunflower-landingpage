@@ -5,6 +5,15 @@
  * @package Sunflower Landingpage
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! defined( 'SUNFLOWER_CHILD_THEME_VERSION' ) ) {
+	$sunflower_childtheme_version = wp_get_theme()->get( 'Version' );
+	define( 'SUNFLOWER_CHILD_THEME_VERSION', $sunflower_childtheme_version );
+}
+
 add_action(
 	'wp_enqueue_scripts',
 	function () {
@@ -13,7 +22,7 @@ add_action(
 			'sunflower-child-style-base',
 			get_stylesheet_directory_uri() . '/style.css',
 			array(),
-			wp_get_theme()->get( 'Version' )
+			SUNFLOWER_CHILD_THEME_VERSION
 		);
 	}
 );
@@ -34,7 +43,7 @@ add_action(
 				'frontend',
 				get_stylesheet_directory_uri() . '/assets/js/frontend.js',
 				null,
-				filemtime( $child_frontend_path ),
+				SUNFLOWER_CHILD_THEME_VERSION,
 				true
 			);
 		}
@@ -58,7 +67,7 @@ add_action(
 			'decider-script',
 			get_stylesheet_directory_uri() . '/assets/js/decider.js',
 			array(),
-			'1.0.0',
+			SUNFLOWER_CHILD_THEME_VERSION,
 			true
 		);
 		wp_localize_script(

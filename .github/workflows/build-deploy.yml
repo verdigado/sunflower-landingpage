@@ -83,7 +83,7 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-            artifacts: '${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip'
+            artifacts: '${{ github.workspace }}/${{ env.THEME_SLUG }}/${{ env.THEME_SLUG }}-${{ github.event.release.tag_name }}.zip'
             makeLatest: true
             prerelease: false
             allowUpdates: true

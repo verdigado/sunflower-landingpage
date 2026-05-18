@@ -389,7 +389,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
             <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
         </div>
         <ul class="wp-block-list">
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-dff9965d43d295c8d9b880998ab3ba26"><strong>2 individuelle .de-Domains</strong><br>inkl. Sicherheitszertifikat</li>
+            <li class="has-tanne-color has-text-color has-link-color wp-elements-dff9965d43d295c8d9b880998ab3ba26"><strong>Individuelle .de-Domain</strong><br>inkl. Sicherheitszertifikat</li>
             <li class="has-tanne-color has-text-color has-link-color wp-elements-e8ec4f8d4f175ccd0c1e5fee0292e87c"><strong>40 E-Mail Konten</strong></li>
             <li class="has-tanne-color has-text-color has-link-color wp-elements-f43f2795a64051ce4a53c7c7c90d2e42"><strong>40 Mailinglisten</strong></li>
         </ul>

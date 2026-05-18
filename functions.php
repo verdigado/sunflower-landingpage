@@ -21,7 +21,7 @@ add_action(
 		wp_enqueue_style(
 			'sunflower-child-style-base',
 			get_stylesheet_directory_uri() . '/style.css',
-			array(),
+			array( 'sunflower-style' ),
 			SUNFLOWER_CHILD_THEME_VERSION
 		);
 	}

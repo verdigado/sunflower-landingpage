@@ -6,6 +6,15 @@
     position: fixed;
     transition: 200ms ease-out;
 
+    .brand-left {
+
+        margin: calc(var(--grid-margin) - 2px) 80px 0 calc(var(--grid-margin) + 7px) !important;
+
+        @include media-breakpoint-down(xl) {
+            margin: var(--double-grid-margin) 80px 0 calc(var(--double-grid-margin) + 7px) !important;
+        }
+    }
+
     .menubar {
         transition: 200ms ease-out;
         position: fixed;

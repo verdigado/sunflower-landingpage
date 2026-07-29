@@ -351,107 +351,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		renderBestTariff();
 	}
 
-	function createTariffMarkup( bestProductKey ) {
-		const maxPoints = Math.max( ...Object.values( points ) );
-		if ( maxPoints === 0 ) {
-			return '';
-		}
-
-		switch ( bestProductKey ) {
-			case 'WordPress Basis':
-				return `
-<div class="wp-block-group tarife is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-94bc23d7 wp-block-group-is-layout-flex">
-    <div class="wp-block-group tarife__tarif has-white-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
-        <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-0d637c9c8f6b5e22c2946c602d5fcffc">WordPress <br>Basis</h3>
-        <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-334d94eb58cf472b108ef7d1ed711960">19 €</h2>
-            <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
-        </div>
-        <ul class="wp-block-list">
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-068c2f015251b8effa0ec5d4b47c39f5"><strong>Individuelle .de-Domain</strong><br>inkl. Sicherheitszertifikat</li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-24bfbf6ae71eaabb6a59e119de0abbab"><strong>20 E-Mail Konten</strong></li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-4d2440ae4200ef57ddf68e4b28208272"><strong>20 Mailinglisten</strong></li>
-        </ul>
-        <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-            <div class="wp-block-button">
-                <a href="${ homeUrl }/bestellformular/?tarif=wordpress-basis" class="wp-block-button__link has-white-color has-tanne-background-color has-text-color has-background has-link-color wp-element-button">Tarif buchen</a>
-            </div>
-        </div>
-    </div>
-</div>`;
-			case 'WordPress Premium':
-				return `
-<div class="wp-block-group tarife is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-94bc23d7 wp-block-group-is-layout-flex">
-    <div class="wp-block-group tarife__tarif has-gruener-sand-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
-        <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-81e4eca73ab66d5ce944809a74501089">WordPress <br>Premium</h3>
-        <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-13355eb76f3d06d8f7186d3eea67de55">35 €</h2>
-            <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
-        </div>
-        <ul class="wp-block-list">
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-dff9965d43d295c8d9b880998ab3ba26"><strong>Individuelle .de-Domain</strong><br>inkl. Sicherheitszertifikat</li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-e8ec4f8d4f175ccd0c1e5fee0292e87c"><strong>40 E-Mail Konten</strong></li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-f43f2795a64051ce4a53c7c7c90d2e42"><strong>40 Mailinglisten</strong></li>
-        </ul>
-        <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-            <div class="wp-block-button">
-                <a href="${ homeUrl }/bestellformular/?tarif=wordpress-premium" class="wp-block-button__link has-white-color has-tanne-background-color has-text-color has-background has-link-color wp-element-button">Tarif buchen</a>
-            </div>
-        </div>
-    </div>
-</div>`;
-			case 'TYPO3 Basis':
-				return `
-<div class="wp-block-group tarife is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-94bc23d7 wp-block-group-is-layout-flex">
-    <div class="wp-block-group tarife__tarif has-white-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
-        <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-42ef099f476b07bacc5be8ae059b5d4a">TYPO3 <br>Basis</h3>
-        <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-334d94eb58cf472b108ef7d1ed711960">19 €</h2>
-            <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
-        </div>
-        <ul class="wp-block-list">
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-068c2f015251b8effa0ec5d4b47c39f5"><strong>Individuelle .de-Domain</strong><br>inkl. Sicherheitszertifikat</li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-24bfbf6ae71eaabb6a59e119de0abbab"><strong>20 E-Mail Konten</strong></li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-4d2440ae4200ef57ddf68e4b28208272"><strong>20 Mailinglisten</strong></li>
-        </ul>
-        <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-            <div class="wp-block-button">
-                <a href="${ homeUrl }/bestellformular/?tarif=typo3-basis" class="wp-block-button__link has-white-color has-tanne-background-color has-text-color has-background has-link-color wp-element-button">Tarif buchen</a>
-            </div>
-        </div>
-    </div>
-</div>`;
-			case 'TYPO3 Premium':
-				return `
-<div class="wp-block-group tarife is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-94bc23d7 wp-block-group-is-layout-flex">
-    <div class="wp-block-group tarife__tarif has-gruener-sand-background-color has-background is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
-        <h3 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-a5796a42f4cc5424af37a2f4feb4c77d">TYPO3 <br>Premium</h3>
-        <div class="wp-block-group price is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-            <h2 class="wp-block-heading has-tanne-color has-text-color has-link-color wp-elements-9ae10fc9291cc6bc01d2ebff64c79f34">28 €</h2>
-            <p class="has-tanne-color has-text-color has-link-color wp-elements-4ec4328320af16f06a0033a964ad477b" style="font-size:clamp(16.293px, 1.018rem + ((1vw - 3.2px) * 0.806), 25px);">/ Monat</p>
-        </div>
-        <ul class="wp-block-list">
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-dff9965d43d295c8d9b880998ab3ba26"><strong>2 individuelle .de-Domains</strong><br>inkl. Sicherheitszertifikat</li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-e8ec4f8d4f175ccd0c1e5fee0292e87c"><strong>40 E-Mail Konten</strong></li>
-            <li class="has-tanne-color has-text-color has-link-color wp-elements-f43f2795a64051ce4a53c7c7c90d2e42"><strong>40 Mailinglisten</strong></li>
-        </ul>
-        <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-            <div class="wp-block-button">
-                <a href="${ homeUrl }/bestellformular/?tarif=typo3-premium" class="wp-block-button__link has-white-color has-tanne-background-color has-text-color has-background has-link-color wp-element-button">Tarif buchen</a>
-            </div>
-        </div>
-    </div>
-</div>`;
-			default:
-				return '';
-		}
-	}
-
 	function renderBestTariff() {
 		const values = Object.values( points );
 		const maxPoints = Math.max( ...values );
 
-		// Zustand: noch keine Antwort
 		if ( maxPoints === 0 ) {
 			resultSummary.innerHTML =
 				'<h3 class="decider-hint tarife__tarif has-gruener-sand-background-color has-background"><img class="arrow" src="/wp-content/themes/sunflower-landingpage/assets/img/arrow-left.svg" alt="Pfeil nach links">Triff eine Auswahl, um das für dich passende Modell zu berechnen.</h3>';
@@ -462,7 +365,13 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			a[ 1 ] > b[ 1 ] ? a : b
 		)[ 0 ];
 
-		resultSummary.innerHTML = createTariffMarkup( best );
+		const id = best.toLowerCase().replace( /\s+/g, '-' );
+		const card = document.getElementById( id );
+
+		resultSummary.innerHTML = '';
+		if ( card ) {
+			resultSummary.appendChild( card.cloneNode( true ) );
+		}
 	}
 
 	function showFinalMessage() {

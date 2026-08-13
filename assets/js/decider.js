@@ -356,8 +356,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		const maxPoints = Math.max( ...values );
 
 		if ( maxPoints === 0 ) {
-			resultSummary.innerHTML =
-				'<h3 class="decider-hint tarife__tarif has-gruener-sand-background-color has-background"><img class="arrow" src="/wp-content/themes/sunflower-landingpage/assets/img/arrow-left.svg" alt="Pfeil nach links">Triff eine Auswahl, um das für dich passende Modell zu berechnen.</h3>';
+			resultSummary.innerHTML = `<h3 class="decider-hint tarife__tarif has-gruener-sand-background-color has-background"><img class="arrow" src="${ homeUrl }/wp-content/themes/sunflower-landingpage/assets/img/arrow-left.svg" alt="Pfeil nach links">Triff eine Auswahl, um das für dich passende Modell zu berechnen.</h3>`;
 			return;
 		}
 
